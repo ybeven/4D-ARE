@@ -1,0 +1,105 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+secrets/
+
+# Generated data (users generate their own)
+output/
+data/
+experiments/data/
+*.json
+!.env.example
+!pyproject.toml
+!mcp_servers/**/pyproject.toml
+
+# Experiment outputs
+*.csv
+human_calibration.csv
+detailed_results.json
+scenarios.json
+results.csv
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Test/coverage
+.nox/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Documentation
+site/
+docs/_build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Academic paper files (not part of open source release)
+4d-are-arxiv/
+4d-are-re2026/
+*.tex
+*.bib
+*.aux
+*.log
+*.out
+*.pdf
+*.zip
+
+# Chinese internal docs
+论文*.md
+
+# Logs
+*.log
+logs/

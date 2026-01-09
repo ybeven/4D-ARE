@@ -1,0 +1,132 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "four-d-are"
+version = "0.1.0"
+description = "Attribution-Driven Agent Requirements Engineering for LLMs - Build agents that explain why, not just what"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Bo Yu", email = "evenyu@tencent.com" },
+    { name = "Lei Zhao", email = "sanshizhao@tencent.com" },
+]
+keywords = [
+    "llm",
+    "agents",
+    "requirements-engineering",
+    "causal-attribution",
+    "prompt-engineering",
+    "mcp",
+    "ai-agents",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "openai>=1.0.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+mysql = [
+    "pymysql>=1.0.0",
+    "sqlalchemy>=2.0.0",
+]
+postgres = [
+    "psycopg2-binary>=2.9.0",
+    "sqlalchemy>=2.0.0",
+]
+excel = [
+    "pandas>=2.0.0",
+    "openpyxl>=3.0.0",
+]
+all = [
+    "four-d-are[mysql,postgres,excel]",
+]
+
+[project.scripts]
+four-d-are = "four_d_are.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/anthropics/4D-ARE"
+Documentation = "https://github.com/anthropics/4D-ARE#readme"
+Repository = "https://github.com/anthropics/4D-ARE"
+Changelog = "https://github.com/anthropics/4D-ARE/blob/main/CHANGELOG.md"
+Issues = "https://github.com/anthropics/4D-ARE/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/four_d_are"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/",
+    "README.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "W",   # pycodestyle warnings
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+]
+
+[tool.ruff.isort]
+known-first-party = ["four_d_are"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_ignores = true
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=four_d_are --cov-report=term-missing"
+pythonpath = ["src"]
+
+[tool.coverage.run]
+source = ["src/four_d_are"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+]
