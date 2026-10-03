@@ -1,11 +1,28 @@
 """
 4D-ARE Experiment Configuration
-使用 Ilya 提供的 OpenAI compatible API
+
+API credentials are read from environment variables (or a `.env` file):
+    OPENAI_COMPATIBLE_API_KEY   (required)
+    OPENAI_COMPATIBLE_BASE_URL  (optional, defaults to the OpenAI API)
 """
 
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # API Configuration
-OPENAI_COMPATIBLE_BASE_URL = "https://xiaoai.plus/v1"
-OPENAI_COMPATIBLE_API_KEY = "sk-YKdSSGVtZ6fuioo3tCa4lIR5WwdYCxzRjoPUJHnY9A2BaLSE"
+OPENAI_COMPATIBLE_BASE_URL = os.environ.get(
+    "OPENAI_COMPATIBLE_BASE_URL", "https://api.openai.com/v1"
+)
+OPENAI_COMPATIBLE_API_KEY = os.environ.get("OPENAI_COMPATIBLE_API_KEY")
+
+if not OPENAI_COMPATIBLE_API_KEY:
+    raise RuntimeError(
+        "OPENAI_COMPATIBLE_API_KEY is not set. Export it in your shell or add it "
+        "to a .env file (see .env.example) before running the experiment."
+    )
 
 # Experiment Parameters
 NUM_SCENARIOS = 150          # 目标样本量

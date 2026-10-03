@@ -49,5 +49,5 @@ This project implements the 4D-ARE framework from the research paper:
 
 The framework addresses the "Attribution Gap" - the tendency of LLM agents to report *what* happened without explaining *why*.
 
-[0.1.0]: https://github.com/anthropics/4D-ARE/releases/tag/v0.1.0
-[Unreleased]: https://github.com/anthropics/4D-ARE/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/ybeven/4D-ARE/releases/tag/v0.1.0
+[Unreleased]: https://github.com/ybeven/4D-ARE/compare/v0.1.0...HEAD
