@@ -71,11 +71,11 @@ all = [
 four-d-are = "four_d_are.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/anthropics/4D-ARE"
-Documentation = "https://github.com/anthropics/4D-ARE#readme"
-Repository = "https://github.com/anthropics/4D-ARE"
-Changelog = "https://github.com/anthropics/4D-ARE/blob/main/CHANGELOG.md"
-Issues = "https://github.com/anthropics/4D-ARE/issues"
+Homepage = "https://github.com/ybeven/4D-ARE"
+Documentation = "https://github.com/ybeven/4D-ARE#readme"
+Repository = "https://github.com/ybeven/4D-ARE"
+Changelog = "https://github.com/ybeven/4D-ARE/blob/main/CHANGELOG.md"
+Issues = "https://github.com/ybeven/4D-ARE/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/four_d_are"]

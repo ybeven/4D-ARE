@@ -13,7 +13,7 @@ Thank you for your interest in contributing to 4D-ARE! This document provides gu
 
 ```bash
 # Clone the repository
-git clone https://github.com/anthropics/4D-ARE.git
+git clone https://github.com/ybeven/4D-ARE.git
 cd 4D-ARE
 
 # Create virtual environment
